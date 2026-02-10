@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI时光机使用说明书</title>
+    <style>
+        /* 屏幕显示样式 */
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 15px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .image-caption {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 8px;
+        }
+        .step {
+            background: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            page-break-inside: avoid; /* 防止打印时被分割 */
+        }
+        .note {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+            page-break-inside: avoid;
+        }
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+            page-break-inside: avoid;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        mark {
+            background-color: #fff9c4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
+        }
+        
+        /* 打印专用样式 - 确保PDF完整保留格式 */
+        @media print {
+            body {
+                margin: 0 !important;
+                padding: 15pt !important;
+                background: white !important;
+                font-size: 11pt;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            h1 {
+                color: #000000 !important;
+                border-bottom: 2pt solid #3498db !important;
+                font-size: 18pt !important;
+                margin-top: 0 !important;
+            }
+            
+            h2 {
+                color: #000000 !important;
+                border-left: 4pt solid #3498db !important;
+                font-size: 14pt !important;
+                margin-top: 20pt !important;
+            }
+            
+            h3 {
+                color: #000000 !important;
+                font-size: 12pt !important;
+            }
+            
+            .step, .note, .warning {
+                background: #f8fafc !important; /* 打印用浅色背景 */
+                border: 1pt solid #cccccc !important;
+                border-left: 4pt solid #3498db !important;
+                margin: 12pt 0 !important;
+                padding: 12pt !important;
+                border-radius: 4pt !important;
+                page-break-inside: avoid !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .note {
+                border-left-color: #f1c40f !important;
+                background: #fffef0 !important;
+            }
+            
+            .warning {
+                border-left-color: #e74c3c !important;
+                background: #fff0f0 !important;
+            }
+            
+            .image-container {
+                border: 0.5pt solid #999999 !important;
+                background: white !important;
+                margin: 15pt 0 !important;
+                padding: 8pt !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .image-caption {
+                color: #666666 !important;
+                font-size: 10pt !important;
+            }
+            
+            a {
+                color: #0000aa !important;
+                text-decoration: underline !important;
+            }
+            
+            /* 隐藏不必要的内容 */
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 9pt;
+                color: #666666;
+            }
+            
+            .footer {
+                margin-top: 30pt !important;
+                font-size: 10pt !important;
+                color: #666666 !important;
+            }
+            
+            /* 确保图片正常打印 */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            
+            /* 避免在标题后分页 */
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            /* 控制分页 */
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>AI时光机使用说明书</h1>
+
+<h2>一、快速上手</h2>
+
+<div class="step">
+    <h3>1. 开机与配网</h3>
+    <p><strong>开机后设备自动进入<mark>配网模式</mark>，屏幕显示：</strong><br>
+    <code>配网模式 手机打开热点并连接 http://192.168.4.1</code></p>
+    <p><strong>使用手机连接设备热点：</strong><br>
+    搜索并连接 <strong>Xiaozhi-xxx</strong></p>
+    
+    <div class="image-container">
+        <img src="media/image1.png" alt="设备热点连接示意图">
+        <div class="image-caption">图1：手机搜索并连接设备热点</div>
+    </div>
+</div>
+
+<div class="step">
+    <h3>2. 访问配置页面</h3>
+    <p>连接热点后，手机会自动跳转至配置页面；<br>
+    <strong>如未跳转，请手动点击下面链接，或者在浏览器中输入：</strong><br>
+    <a href="https://192.168.4.1" target="_blank">https://192.168.4.1</a></p>
+    <p>在页面中选择您的家庭WiFi，输入密码并连接：</p>
+    
+    <div class="image-container">
+        <img src="media/image2.png" alt="WiFi选择界面">
+        <div class="image-caption">图2：选择WiFi并输入密码</div>
+    </div>
+</div>
+
+<div class="step">
+    <h3>3. 注册并绑定设备</h3>
+    <p>访问设备管理平台：<br>
+    <a href="https://xiaozhi.me" target="_blank">https://xiaozhi.me</a></p>
+    <p>注册账号并登录控制台：</p>
+    
+    <div class="image-container">
+        <img src="media/image3.png" alt="控制台注册页面">
+        <div class="image-caption">图3：注册账号并登录控制台</div>
+    </div>
+    
+    <p>进入<strong>“添加设备” → 输入“设备验证码”</strong>完成绑定：验证码在屏幕上显示，或者语音播报</p>
+    
+    <div class="image-container">
+        <img src="media/image4.png" alt="设备验证码输入界面">
+        <div class="image-caption">图4：输入验证码绑定设备</div>
+    </div>
+</div>
+
+<div class="step">
+    <h3>4. 选择智能体（可选）</h3>
+    <p>您可为设备选择不同风格的智能体，例如儿童模式可使用"汪汪队"：</p>
+    
+    <div class="image-container">
+        <img src="media/image5.png" alt="智能体选择界面">
+        <div class="image-caption">图5：选择适合的智能体</div>
+    </div>
+</div>
+
+<div class="step">
+    <h3>5. 重置WiFi（如需要）</h3>
+    <p>长按设备正面<strong>第二个按钮约5秒</strong>，即可重新进入配网模式，重复步骤1-3完成设置。</p>
+</div>
+
+<div class="note">
+    <p>💡 <strong>提示：</strong> 建议将设备放在WiFi信号稳定的位置，以确保AI响应速度。</p>
+</div>
+
+<h2>二、开始使用</h2>
+
+<div class="step">
+    <h3>唤醒与对话</h3>
+    <p>1. 说出唤醒词：<strong>“你好！小新！”</strong></p>
+    <p>2. AI将立即响应并开始对话</p>
+    <p>3. 正面第一个按键为"长按开机/关机"</p>
+    <p>4. 正面第二个按键为"唤醒键"，长按为<strong>重置WiFi键</strong></p>
+    <p>5. 背面按键为<strong>重启键</strong></p>
+    <p>6. 正面两个按键短按可切换<strong>时钟字体</strong></p>
+</div>
+
+<h2>三、产品功能说明</h2>
+
+<div class="step">
+    <h3>1. 主要功能</h3>
+    <ul>
+        <li><strong>智能时钟</strong> + <strong>AI语音助手</strong></li>
+        <li><strong>AI系统：</strong>基于开源项目"AI小智"，支持自定义智能体</li>
+        <li><strong>供电方式：</strong>
+            <ul>
+                <li>内置电池：待机约一周</li>
+                <li>USB供电：建议长期插电使用，唤醒响应更快</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="step">
+    <h3>2. 使用模式</h3>
+    <ul>
+        <li><strong>插电模式：</strong>唤醒"你好！小新！"即可对话，说"退出待机"后进入后台待机</li>
+        <li><strong>电池模式：</strong>唤醒后若60秒无对话，将进入深度睡眠；需按<strong>正面第二个按钮</strong>重新唤醒</li>
+    </ul>
+</div>
+
+<div class="step">
+    <h3>3. 音量调节</h3>
+    <p>支持语音调节音量，例如：<br>
+    <strong>“音量设置为50%”</strong></p>
+</div>
+
+<h2>四、注意事项</h2>
+
+<div class="warning">
+    <h3>1. 设备状态说明</h3>
+    <p>设备目前处于<strong>测试阶段</strong>，可能存在未完善的体验。<br>
+    如遇问题或希望提出建议，欢迎随时反馈。<br>
+    <strong>“如遇到死机，请点按设备后方的重启键”</strong></p>
+</div>
+
+<div class="note">
+    <h3>2. 后续计划</h3>
+    <p>本项目将在<strong>立创开源广场</strong>开源发布，欢迎关注与支持。</p>
+</div>
+
+<div class="footer">
+    <p>感谢使用 <strong>AI时光机</strong><br>
+    制作：野马<br>
+    祝您使用愉快！</p>
+    <p style="font-size: 12px; color: #95a5a6;">文档版本：1.2 | 更新日期：2025年7月</p>
+</div>
+
+</body>
+</html>
